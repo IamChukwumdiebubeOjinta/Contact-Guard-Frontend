@@ -20,7 +20,7 @@ export default function Footer() {
                   aria-label="Contact-Guard"
                 >
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.svg"
                     width={250}
                     height={70}
                     alt="Logo"

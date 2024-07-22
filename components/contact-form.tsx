@@ -1,63 +1,84 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/stores/userStore";
+import { useApiService } from "@/context/HuxApiServiceContext";
+import { useContactStore } from "@/stores/contactStore";
+import toast from "react-hot-toast";
 
 type ContactFormProps = {
   contactId?: string;
 };
 
 type Contact = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
+  id?: string;
+  fullname: string;
+  phonenumber: string;
+  companyName: string;
 };
 
 const ContactForm: React.FC<ContactFormProps> = ({ contactId }) => {
   const router = useRouter();
-  const [contacts, setContacts] = useState<Contact[]>(() => {
-    const savedContacts = sessionStorage.getItem("hux_contacts");
-    return savedContacts ? JSON.parse(savedContacts) : [];
-  });
-  const [formState, setFormState] = useState({
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
+  const [loading, setLoading] = useState(false);
+  const token = useUserStore((state) => state.token);
+  const selectedContact = useContactStore((state) => state.selectedContact);
+  const { apiService } = useApiService();
+
+  // console.log(contactId);
+
+  const [formState, setFormState] = useState<Contact>({
+    fullname: "",
+    phonenumber: "",
+    companyName: "",
   });
 
   useEffect(() => {
-    if (contactId) {
-      const contactToEdit = contacts.find(
-        (contact) => contact.id === contactId
-      );
-      if (contactToEdit) {
-        setFormState(contactToEdit);
-      }
+    if (contactId && selectedContact) {
+      setFormState({
+        fullname: selectedContact.fullname,
+        phonenumber: selectedContact.phonenumber,
+        companyName: selectedContact.companyName,
+      });
     }
-  }, [contactId, contacts]);
+  }, [contactId, selectedContact]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
+    setFormState((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (contactId) {
-      const updatedContacts = contacts.map((contact) =>
-        contact.id === contactId ? { ...contact, ...formState } : contact
-      );
-      setContacts(updatedContacts);
-    } else {
-      const newContact = { ...formState, id: (contacts.length + 1).toString() };
-      setContacts([...contacts, newContact]);
+
+    setLoading(true);
+    try {
+      apiService.setToken(token);
+      if (contactId) {
+        // Update existing contact
+        const res = await apiService.patch(`/contact/${contactId}`, formState);
+        useContactStore.getState().updateContact(res.data);
+      } else {
+        // Create new contact
+        const res = await apiService.post("/contact", formState);
+        useContactStore.getState().addContact(res.data);
+      }
+      setTimeout(() => {
+        toast.success("Contact saved successfully!", {
+          duration: 3000,
+          position: "bottom-center",
+        });
+        router.push("/contact");
+      }, 4000);
+    } catch (error) {
+      console.error("Error submitting contact:", error);
+    } finally {
+      setLoading(false);
     }
-    sessionStorage.setItem("hux_contacts", JSON.stringify(contacts));
-    router.push("/");
+  };
+
+  const handleGoBack = () => {
+    router.back();
   };
 
   return (
@@ -70,8 +91,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactId }) => {
           <label className="block mb-1 text-sm font-medium">Name</label>
           <input
             type="text"
-            name="name"
-            value={formState.name}
+            name="fullname"
+            value={formState.fullname}
             onChange={handleInputChange}
             className="w-full p-2 border rounded"
             placeholder="e.g., John Doe"
@@ -79,23 +100,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactId }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-1 text-sm font-medium">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formState.email}
-            onChange={handleInputChange}
-            className="w-full p-2 border rounded"
-            placeholder="e.g., john.doe@example.com"
-            required
-          />
-        </div>
-        <div className="mb-4">
           <label className="block mb-1 text-sm font-medium">Phone</label>
           <input
             type="tel"
-            name="phone"
-            value={formState.phone}
+            name="phonenumber"
+            value={formState.phonenumber}
             onChange={handleInputChange}
             className="w-full p-2 border rounded"
             placeholder="e.g., (123) 456-7890"
@@ -106,19 +115,32 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactId }) => {
           <label className="block mb-1 text-sm font-medium">Company</label>
           <input
             type="text"
-            name="company"
-            value={formState.company}
+            name="companyName"
+            value={formState.companyName}
             onChange={handleInputChange}
             className="w-full p-2 border rounded"
             placeholder="e.g., ABC Corp"
           />
         </div>
-        <button
-          type="submit"
-          className="px-4 py-2 text-white bg-blue-500 rounded"
-        >
-          {contactId ? "Update Contact" : "Add Contact"}
-        </button>
+        <div className="flex gap-4">
+          <button
+            type="button"
+            onClick={handleGoBack}
+            className="w-full text-white bg-[#2C3E50] btn hover:bg-gray-800 sm:w-auto"
+          >
+            Go Back
+          </button>
+          <button
+            type="submit"
+            className="px-4 py-2 text-white bg-[#5DADE2] btn-sm hover:bg-[#4987b1]"
+          >
+            {loading ? (
+              "Saving..."
+            ) : (
+              <>{contactId ? "Update Contact" : "Add Contact"}</>
+            )}
+          </button>
+        </div>
       </form>
     </div>
   );
