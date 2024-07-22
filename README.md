@@ -12,9 +12,17 @@ description: "A simple web application that allows users to save contact informa
 
 ---
 
-import BannerImage from './images/logo.png';
+<!-- markdownlint-disable MD033 -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/images/logo-white.png">
+  <img alt="Text describing the image" src="/images/logo-white.png">
+</picture>
 
-![Banner](BannerImage)
+<!-- markdownlint-disable MD033 -->
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="/images/logo-dark.png">
+  <img alt="Text describing the image" src="/images/logo-dark.png">
+</picture>
 
 **Contact Guard** is a simple web application that allows users to save contact information. Built with modern web technologies, it provides a seamless user experience for managing contact details.
 
@@ -90,9 +98,9 @@ npm start
 - **postcss**: ^8.4.32 — A tool for transforming CSS with JavaScript plugins.
 - **tailwindcss**: ^3.3.6 — A utility-first CSS framework.
 
-## Live demo
+## Live demo {#demo}
 
-Check the live demo here 👉️ [https://open.cruip.com/](https://open.cruip.com/)
+Check the live demo here 👉️ [https://drive.google.com/drive/folders/1biwuEHouujfNVzLcng4s0Dmp6N4dXU6N?usp=drive_link](https://drive.google.com/drive/folders/1biwuEHouujfNVzLcng4s0Dmp6N4dXU6N?usp=drive_link)
 
 ## Project Setup
 
@@ -129,6 +137,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+Chukwumdiebube: I did not host this project, everything was done locally.
+Any Issues or Information needed, email me at [Email@chukwumudiebube.com](mailto://chukwumudiebubeojinta@gmail.com).
+
 ### Support notes
 
 This template has been developed with the App Router (`app`) and React Server Components. If you’re unfamiliar with these beta features, you can find more information about them on the Next.js beta documentation page. So, please note that any request dealing with React (e.g. extra features, customizations, et cetera) is to be considered out of the support scope.
@@ -138,5 +149,6 @@ For more information about what support covers, please see our [FAQs](https://cr
 ## About Us
 
 Developed with ❤️ by Chukwumdiebube Ojinta.
+Contact: [@IamChukwumdiebubeOjinta](mailto:chukwumdiebube@gmail.com)
 
 A Nigerian developer.
