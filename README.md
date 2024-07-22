@@ -1,28 +1,22 @@
 # Hux Assessment Frontend
 
----
-
-name: "Contact Guard"
-
-version: "0.1.0"
-
-private: true
-
-description: "A simple web application that allows users to save contact information."
-
----
-
-<!-- markdownlint-disable MD033 -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/images/logo-white.png">
   <img alt="Text describing the image" src="/images/logo-white.png">
 </picture>
 
-<!-- markdownlint-disable MD033 -->
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="/images/logo-dark.png">
   <img alt="Text describing the image" src="/images/logo-dark.png">
 </picture>
+
+---
+
+name: "Contact Guard"
+
+description: "A simple web application that allows users to save contact information."
+
+---
 
 **Contact Guard** is a simple web application that allows users to save contact information. Built with modern web technologies, it provides a seamless user experience for managing contact details.
 
