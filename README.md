@@ -1,13 +1,14 @@
 # Hux Assessment Frontend
 
+<!-- markdownlint-disable MD033 -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/images/logo-white.png">
-  <img alt="Text describing the image" src="/images/logo-white.png">
+  <source media="(prefers-color-scheme: dark)" srcset="public/images/logo-white.png">
+  <img alt="Contact Guard" src="public/images/logo-white.png">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="/images/logo-dark.png">
-  <img alt="Text describing the image" src="/images/logo-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="public/images/logo-dark.png">
+  <img alt="Contact Guard" src="public/images/logo-dark.png">
 </picture>
 
 ---
