@@ -69,7 +69,7 @@ npm start
 ## Scripts
 
 - **dev**: Starts the development server using Next.js.
-- **build**: Builds the application for production.
+- **build**: Builds the production application.
 - **start**: Starts the production server.
 - **lint**: Runs the linter to check code quality and style.
 
@@ -133,17 +133,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 Chukwumdiebube: I did not host this project, everything was done locally.
-Any Issues or Information needed, email me at [Email@chukwumudiebube.com](mailto://chukwumudiebubeojinta@gmail.com).
-
-### Support notes
-
-This template has been developed with the App Router (`app`) and React Server Components. If you’re unfamiliar with these beta features, you can find more information about them on the Next.js beta documentation page. So, please note that any request dealing with React (e.g. extra features, customizations, et cetera) is to be considered out of the support scope.
-
-For more information about what support covers, please see our [FAQs](https://cruip.com/faq/).
+If you have any issues or need any information, please feel free to email me at [Email@chukwumudiebube.com](mailto://chukwumudiebubeojinta@gmail.com).
 
 ## About Us
 
 Developed with ❤️ by Chukwumdiebube Ojinta.
-Contact: [@IamChukwumdiebubeOjinta](mailto:chukwumdiebube@gmail.com)
+Contact: [@IamChukwumdiebubeOjinta](mailto:chukwumdiebubeojinta@gmail.com)
 
 A Nigerian developer.
