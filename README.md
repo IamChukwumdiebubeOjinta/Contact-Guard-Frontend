@@ -99,13 +99,13 @@ Check the live demo here 👉️ [https://drive.google.com/drive/folders/1biwuEH
 
 ## Project Setup
 
-![Project Setup](SetupImage)
+<!-- ![Project Setup](SetupImage) -->
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling and [AOS](https://michalsnik.github.io/aos/) for scroll animations. Ensure you follow the setup guidelines in the Tailwind CSS and AOS documentation for optimal results.
 
 ## Contact Form
 
-![Contact Form](ContactFormImage)
+<!-- ![Contact Form](ContactFormImage) -->
 
 The application features a contact form where users can input and save their contact details. The form is styled using Tailwind CSS and incorporates basic form validation.
 
