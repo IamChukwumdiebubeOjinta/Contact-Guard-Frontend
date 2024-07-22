@@ -95,7 +95,7 @@ npm start
 
 ## Live demo {#demo}
 
-Check the live demo here 👉️ [https://drive.google.com/drive/folders/1biwuEHouujfNVzLcng4s0Dmp6N4dXU6N?usp=drive_link](https://drive.google.com/drive/folders/1biwuEHouujfNVzLcng4s0Dmp6N4dXU6N?usp=drive_link)
+Check the live demo here 👉️ [Google Drive](https://drive.google.com/drive/folders/1biwuEHouujfNVzLcng4s0Dmp6N4dXU6N?usp=drive_link)
 
 ## Project Setup
 
