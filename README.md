@@ -1,4 +1,4 @@
-# Hux Assessment Frontend
+# Contact Guard
 
 <!-- markdownlint-disable MD033 -->
 <picture>
@@ -13,9 +13,7 @@
 
 ---
 
-name: "Contact Guard"
-
-description: "A simple web application that allows users to save contact information."
+A simple web application that allows users to save contact information.
 
 ---
 
