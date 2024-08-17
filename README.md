@@ -1,15 +1,16 @@
 # Contact Guard
 
-<!-- markdownlint-disable MD033 -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/images/logo-white.png" width="200">
-  <img alt="Contact Guard" src="public/images/logo-white.png">
-</picture>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/images/logo-white.png" width="200">
+    <img alt="Contact Guard" src="public/images/logo-white.png">
+  </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="public/images/logo-dark.png" width="200">
-  <img alt="Contact Guard" src="public/images/logo-dark.png">
-</picture>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="public/images/logo-dark.png" width="200">
+    <img alt="Contact Guard" src="public/images/logo-dark.png">
+  </picture>
+</p>
 
 ---
 
